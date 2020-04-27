@@ -64,4 +64,5 @@ def convert(md: str):
 if __name__ == "__main__":
     md = open_file()
     md_converted = convert(md)
+    print(md_converted)
     save_file(md_converted)
