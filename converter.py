@@ -22,14 +22,14 @@ def calculate_max_heading(md: str):
     return count
 
 
-def save_file(md: str):
-    with open('save.md', "w+", encoding='UTF-8') as file:
-        file.write(md)  # 读取文件全部内容
-        file.close()
+def save_file(filename, md: str):
+    with open(f"{filename.replace('.md', '')}{'-converted.md'}", "w+", encoding='UTF-8') as file_to_save:
+        file_to_save.write(md)  # 读取文件全部内容
+        file_to_save.close()
 
 
-def open_file():
-    with open('FFT.md', encoding='UTF-8') as file:
+def open_file(filename):
+    with open(filename, encoding='UTF-8') as file:
         md = file.read()  # 读取文件全部内容
         file.close()
     return md
@@ -62,7 +62,13 @@ def convert(md: str):
 
 
 if __name__ == "__main__":
-    md = open_file()
-    md_converted = convert(md)
-    print(md_converted)
-    save_file(md_converted)
+    try:
+        path = sys.argv[1]
+    except IndexError:
+        print("Parameter not found.")
+        exit(-1)
+    else:
+        md = open_file(path)
+        md_converted = convert(md)
+        print(md_converted)
+        save_file(path, md_converted)

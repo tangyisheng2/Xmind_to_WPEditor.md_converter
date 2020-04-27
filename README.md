@@ -8,17 +8,17 @@ Python >= 3.7
 
 ## Usage
 
-From XMind Zen App, go to Share - markdown, save your mind app as FFT.md.
+From XMind Zen App, go to Share - markdown, save your mind map.
 
 ![image-20200427130738952](assets/image-20200427130738952.png)
 
 Simply run the command
 
 ```
-python .\converter.py
+python .\converter.py [path-to-convert]
 ```
 
-The script will print convert result and save the result as save.md in the same folder.
+The script will print convert result and save the result as **path-to-convert-converted.md** in the same folder.
 
 ![image-20200427131114900](assets/image-20200427131114900.png)
 
